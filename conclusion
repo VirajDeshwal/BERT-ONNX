@@ -1,0 +1,34 @@
+Task was as follows  - 
+
+
+1. Hence the task is to post-process a pre trained model so that inference can be performed far more efficiently on a CPU / GPU. 
+Another aspect of the task is to have a model that is interoperable with different run time environments (hardware / cloud providers).
+
+Solution - Proposed solution -ONNX - https://microsoft.github.io/onnxruntime/
+Conclusion - Task is achieved successfully on Google's BERT model.
+
+2. Train using toolsets designed for fast experimentation such as PyTorch or TensorFlow, 
+convert the resulting model to an open standards based ONNX model which is optimized for multiple hardware variant such as x86, ARM and CUDA. 
+Also the runtime environment should be supported by various cloud providers such as Azure, Google Cloud and AWS.
+
+Solution - Task is achieved successfully by tuning a pre-trained BERT model using Tensorflow framework and converting the model from tensorflow to onnx,
+which is independent to hardware architecure such as Arm64, x86, CUDA and FPGA. Also, the runtime environment is supported by almost all the clouds platform
+such as AWS, GCP, IBM Cloud, Azure etc.
+
+3. The attached project demonstrates how a pre-trained language model (BART) can be used to summarize text and serve the results as REST APIs. 
+The model is pre-trained on CNN/ DailyMail summarization dataset. This model now performs inference on x86 CPU in round 6-7 seconds and 
+around 1 second on GPU (GTX 1080 TI) .
+Goal is to try and achieve an inference time of less than 200 milli sec on GPU and less than a sec on CPU.
+
+
+Solution - Failed to convert BART into ONNX format due to no official support to the specific version of seq-to-seq model from ONNX or PyTorch.
+There is support for BERT implementation in PyTorch and RoBERTa(PyTorch) but for the specific version (BART) there is no support and hence not able
+to convert specific version to onnx.
+For BERT model - The inference time after post-optimization is as follows - 
+    1. GPU - 1.13 sec (K80 GPU with 8GB RAM)
+    2. CPU - 1.20 sec(2 CPU with 4GB RAM)
+Conclusion - Maybe there will be support for BART in near future and hence will be supported by ONNX. For now, PyTorch community as well as ONNX community
+has no support to the specific version. 
+
+
+
