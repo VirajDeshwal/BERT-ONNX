@@ -1,4 +1,4 @@
-This ReadMe contains instruction for the assignment for I.AM+ Seq-to-Seq model converstion from Tensorflow to ONNXRuntime. 
+This ReadMe contains instruction for  Seq-to-Seq model converstion from Tensorflow to ONNXRuntime. 
 
 Step 1 - Download the BERT model from from googleapis using the following command.
  -> !wget https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip
